@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 12 20:26:36 2020
-@author: Jacinto Mata
-"""
-
 import tweepy
 from tweepy import Stream
 import json
@@ -81,7 +75,7 @@ class MiClaseTwitter(Stream):
 if __name__ == '__main__':
 
     # Si queremos conectarnos a un cluster de Atlas, se usa la misma cadena que para conectarse desde los programas (Compass, Studio 3T, etc.)
-    # En este caso se conecta a un cluster "local" en el que uno de los nodos "escucha" por el puerto 27000
+    # En este caso se conecta a un cluster "local" en el que uno de los nodos "escucha" por el puerto 27017
     stringConexion='mongodb://localhost:27017'
     
     try:

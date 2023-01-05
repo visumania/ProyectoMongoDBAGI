@@ -2,6 +2,7 @@ import PyQt5
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
 from pymongo import MongoClient
+from PyQt5 import uic
 
 if __name__ == "__main__":
 
@@ -38,3 +39,15 @@ if __name__ == "__main__":
             print (f"{i['username']}: {i['followers']}")
     else:
         print("No se ha encontrado a ningún usuario con más de " + numSeguidores + " seguidores")
+
+    resultado = tweets.aggregate([{'$project':{'username':1, 'followers':1}}])
+    listaResultado = list(resultado)
+
+    Form, Window = uic.loadUiType("Interfaz.ui")
+
+    app = QApplication([])
+    window = Window()
+    form = Form()
+    form.setupUi(window)
+    window.show()
+    app.exec()

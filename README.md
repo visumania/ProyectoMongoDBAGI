@@ -17,3 +17,7 @@ El archivo README.md se quedará para ir escribiendo notas y decisiones que irem
 
 En archivo *tweets.json* están los 50k tweets con las diferentes temáticas
 En archivo *Tweets_Streaming_To_MongoDB.py* está el script utilizado para la descarga de los tweets en la base de datos de mongoDB en *localhost*. 
+
+[Enlace](https://build-system.fman.io/qt-designer-download) para descargar *QT Designer* y una explicación de cómo se ejecuta un ejemplo.
+
+Posible migración del proyecto a JAVA??? [Link](https://www.youtube.com/watch?v=TK2S32209cI)

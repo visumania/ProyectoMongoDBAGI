@@ -32,56 +32,65 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTweets = new javax.swing.JTable();
-        jButtonCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuEstadisticas = new javax.swing.JMenu();
+        jMenuConsultas = new javax.swing.JMenu();
+        jMenuSalir = new javax.swing.JMenu();
+        jMenuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicación AGI");
 
-        jTableTweets.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTableTweets);
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PROYECTO ALMACENAMIENTO Y GESTIÓN DE LA INFORMACIÓN");
 
-        jButtonCerrar.setText("Cerrar");
-        jButtonCerrar.setActionCommand("CerrarVentanaPrincipal");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Adrián Moreno Monterde y Pablo Cordón Hidalgo ©");
+
+        jMenuEstadisticas.setText("Estadísticas");
+        jMenuBar1.add(jMenuEstadisticas);
+
+        jMenuConsultas.setText("Consultas");
+        jMenuBar1.add(jMenuConsultas);
+
+        jMenuSalir.setText("Salir");
+
+        jMenuItemSalir.setText("Salir de la Aplicación");
+        jMenuItemSalir.setActionCommand("CerrarVentanaPrincipal");
+        jMenuSalir.add(jMenuItemSalir);
+
+        jMenuBar1.add(jMenuSalir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCerrar)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
-                .addComponent(jButtonCerrar)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(636, 636, 636)
+                .addComponent(jLabel2)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Se sobrescribe el método isCellEditable para hacer que las filas no se puedan editar al hacer doble click
+    /*//Se sobrescribe el método isCellEditable para hacer que las filas no se puedan editar al hacer doble click
     public DefaultTableModel modeloTablaTweets = new DefaultTableModel(){
         @Override
         public boolean isCellEditable(int row, int column){
@@ -102,12 +111,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         vPrincipal.jTableTweets.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
         
         //Así se fija el ancho de las columnas
-        vPrincipal.jTableTweets.getColumnModel().getColumn(0).setPreferredWidth(240);
-        vPrincipal.jTableTweets.getColumnModel().getColumn(1).setPreferredWidth(70);
-        vPrincipal.jTableTweets.getColumnModel().getColumn(2).setPreferredWidth(40);
-        vPrincipal.jTableTweets.getColumnModel().getColumn(3).setPreferredWidth(240);
-        vPrincipal.jTableTweets.getColumnModel().getColumn(4).setPreferredWidth(40);
-        vPrincipal.jTableTweets.getColumnModel().getColumn(5).setPreferredWidth(150);
+        vPrincipal.jTableTweets.getColumnModel().getColumn(0).setPreferredWidth(80);
+        vPrincipal.jTableTweets.getColumnModel().getColumn(1).setPreferredWidth(50);
+        vPrincipal.jTableTweets.getColumnModel().getColumn(2).setPreferredWidth(20);
+        vPrincipal.jTableTweets.getColumnModel().getColumn(3).setPreferredWidth(520);
+        vPrincipal.jTableTweets.getColumnModel().getColumn(4).setPreferredWidth(10);
+        vPrincipal.jTableTweets.getColumnModel().getColumn(5).setPreferredWidth(100);
     }
     
     //Ejemplo de función para mostrar los datos de la tabla MONITOR a partir de una lista de tweets
@@ -136,11 +145,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         {
             modeloTablaTweets.removeRow(0);
         }
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButtonCerrar;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTableTweets;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenu jMenuConsultas;
+    public javax.swing.JMenu jMenuEstadisticas;
+    public javax.swing.JMenuItem jMenuItemSalir;
+    public javax.swing.JMenu jMenuSalir;
     // End of variables declaration//GEN-END:variables
 }

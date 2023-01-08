@@ -18,6 +18,17 @@ El archivo README.md se quedará para ir escribiendo notas y decisiones que irem
 En archivo *tweets.json* están los 50k tweets con las diferentes temáticas
 En archivo *Tweets_Streaming_To_MongoDB.py* está el script utilizado para la descarga de los tweets en la base de datos de mongoDB en *localhost*. 
 
-[Enlace](https://build-system.fman.io/qt-designer-download) para descargar *QT Designer* y una explicación de cómo se ejecuta un ejemplo.
+###### Datos estadísticos a sacar de la base de datos:
+1. Número de tweets almacenados
+2. Periodo de descarga (fecha del primer y del último tweet)
+3. Usuario con más seguidores junto con el número de seguidores
+4. Usuarios más mencionado junto con su frecuencia (top 5)
+5. Hashtag's más frecuentes junto con su frecuencia (top 5)
+6. Número de idiomas diferentes
+7. Idiomas más frecuentes junto con su frecuencia (top 5)
+8. Número de tweets almacenados que son RT's
+9. Usuarios diferentes almacenados en la base de datos Twitter
+10. Usuarios que mas tweets tienen en la base de datos
 
-Posible migración del proyecto a JAVA??? [Link](https://www.youtube.com/watch?v=TK2S32209cI)
+###### Consultas parametrizadas
+*Por rellenar*

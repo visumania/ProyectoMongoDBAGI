@@ -1,7 +1,6 @@
 package Controlador;
 
-import Modelo.Conexion;
-import Modelo.Tweet;
+import Modelo.*;
 import Vista.*;
 import com.mongodb.MongoException;
 import java.awt.event.ActionEvent;
@@ -11,8 +10,11 @@ import java.util.ArrayList;
 public class Controlador implements ActionListener
 {
     private Conexion conexion = null;
+    
     private VistaMensajes vMensajes = null;
-    private VistaPrincipal vPrincipal = null; 
+    private VistaPrincipal vPrincipal = null;
+    
+    private TweetDAO tweetDAO = null;
     
     public Controlador(Conexion conexion)
     {
@@ -20,15 +22,21 @@ public class Controlador implements ActionListener
         vMensajes = new VistaMensajes();
         vPrincipal = new VistaPrincipal();
         
+        tweetDAO = new TweetDAO(conexion);
+        
         addListeners();
         
         vPrincipal.setLocationRelativeTo(null);
         vPrincipal.setVisible(true);
+        /*vPrincipal.dibujarTablaTweets(vPrincipal);
+        vPrincipal.jLabelNTweetsAlmacenados.setText(String.valueOf(tweetDAO.numTweets()));
+        pideTweets();*/
+        
     }
     
     private void addListeners()
     {
-        vPrincipal.jButtonCerrar.addActionListener(this);
+        vPrincipal.jMenuItemSalir.addActionListener(this);
     }
     
     @Override
@@ -45,6 +53,8 @@ public class Controlador implements ActionListener
     
     private void pideTweets() throws MongoException
     {
-        ArrayList<Tweet> lTweets = 
+        ArrayList<Tweet> lTweets = tweetDAO.listaTweets();
+        vPrincipal.vaciarTablaTweets();
+        vPrincipal.rellenarTablaTweets(lTweets);
     }
 }

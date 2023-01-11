@@ -8,6 +8,7 @@ public class Tweet
     String text;
     String language; 
     String date;
+    String[] hashtag;
     
     public Tweet()
     {

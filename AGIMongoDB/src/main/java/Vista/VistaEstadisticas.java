@@ -28,17 +28,26 @@ public class VistaEstadisticas extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelColeccion = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxColecciones = new javax.swing.JComboBox<>();
         jLabelTweetsAlmacenados = new javax.swing.JLabel();
         jLabelNTweetsAlmacenados = new javax.swing.JLabel();
+        jLabelPeriodoDeDescarga = new javax.swing.JLabel();
+        jLabelUsuarioConMasSeguidores = new javax.swing.JLabel();
+        jLabelUsername = new javax.swing.JLabel();
 
         jLabelColeccion.setText("Colección ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "twitter" }));
+        jComboBoxColecciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Selecciona colección - ", "twitter" }));
 
         jLabelTweetsAlmacenados.setText("Número de tweets almacenados: ");
 
-        jLabelNTweetsAlmacenados.setText("jLabel3");
+        jLabelNTweetsAlmacenados.setText("NTweets");
+
+        jLabelPeriodoDeDescarga.setText("Periodo de descarga: ");
+
+        jLabelUsuarioConMasSeguidores.setText("Usuario con más seguidores: ");
+
+        jLabelUsername.setText("username");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -50,12 +59,17 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelColeccion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxColecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelTweetsAlmacenados)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelNTweetsAlmacenados)))
-                .addContainerGap(649, Short.MAX_VALUE))
+                        .addComponent(jLabelNTweetsAlmacenados))
+                    .addComponent(jLabelPeriodoDeDescarga)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelUsuarioConMasSeguidores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUsername)))
+                .addContainerGap(622, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,20 +77,29 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelColeccion)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxColecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTweetsAlmacenados)
                     .addComponent(jLabelNTweetsAlmacenados))
-                .addContainerGap(655, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelPeriodoDeDescarga)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUsuarioConMasSeguidores)
+                    .addComponent(jLabelUsername))
+                .addContainerGap(587, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBoxColecciones;
     private javax.swing.JLabel jLabelColeccion;
     public javax.swing.JLabel jLabelNTweetsAlmacenados;
+    private javax.swing.JLabel jLabelPeriodoDeDescarga;
     private javax.swing.JLabel jLabelTweetsAlmacenados;
+    public javax.swing.JLabel jLabelUsername;
+    private javax.swing.JLabel jLabelUsuarioConMasSeguidores;
     // End of variables declaration//GEN-END:variables
 }

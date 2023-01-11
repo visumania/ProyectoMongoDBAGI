@@ -37,18 +37,22 @@ public class TweetDAO
         return listaTweets;
     }
     
-    //Ejemplo de función la cual devuelve el número de tweets almacenados en la colección
+    //Función que devuelve el número de tweets almacenados en la colección
     public int numTweets() throws MongoException
     {
-        int ret = 0;
         DBCollection colec = db.getCollection("tweets");
         
-        DBCursor cursor = colec.find();
-        
-        ret= cursor.count();
-        
-        cursor.close();
-        
-        return ret;
+        return colec.find().count();
     }
+    
+    //Función que devuelve un array cuya primera posición [0] es el tweet más antiguo y la segunda posición [1] es el último tweet almacenado
+    /*public ArrayList<Tweet> periodoDescarga() throws MongoException
+    {
+        ArrayList<Tweet> listaTweets = new ArrayList();
+        
+        DBCollection colec = db.getCollection("tweets");
+        
+        
+        return listaTweets;
+    }*/
 }

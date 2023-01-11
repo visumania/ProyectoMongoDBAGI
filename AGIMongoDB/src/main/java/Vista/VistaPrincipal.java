@@ -32,29 +32,31 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuEstadisticas = new javax.swing.JMenu();
+        jMenuItemEstadisticas = new javax.swing.JMenuItem();
         jMenuConsultas = new javax.swing.JMenu();
+        jMenuItemConsultas = new javax.swing.JMenuItem();
         jMenuSalir = new javax.swing.JMenu();
         jMenuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicación AGI");
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 204));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PROYECTO ALMACENAMIENTO Y GESTIÓN DE LA INFORMACIÓN");
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Adrián Moreno Monterde y Pablo Cordón Hidalgo ©");
-
         jMenuEstadisticas.setText("Estadísticas");
+
+        jMenuItemEstadisticas.setText("Sección de estadísticas de las colecciones");
+        jMenuItemEstadisticas.setActionCommand("Estadisticas");
+        jMenuEstadisticas.add(jMenuItemEstadisticas);
+
         jMenuBar1.add(jMenuEstadisticas);
 
         jMenuConsultas.setText("Consultas");
+
+        jMenuItemConsultas.setText("Sección de consultas parametrizadas y creación de nuevas colecciones");
+        jMenuItemConsultas.setActionCommand("Consultas");
+        jMenuConsultas.add(jMenuItemConsultas);
+
         jMenuBar1.add(jMenuConsultas);
 
         jMenuSalir.setText("Salir");
@@ -71,20 +73,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGap(0, 1015, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(636, 636, 636)
-                .addComponent(jLabel2)
-                .addContainerGap())
+            .addGap(0, 852, Short.MAX_VALUE)
         );
 
         pack();
@@ -148,11 +141,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenu jMenuConsultas;
     public javax.swing.JMenu jMenuEstadisticas;
+    public javax.swing.JMenuItem jMenuItemConsultas;
+    public javax.swing.JMenuItem jMenuItemEstadisticas;
     public javax.swing.JMenuItem jMenuItemSalir;
     public javax.swing.JMenu jMenuSalir;
     // End of variables declaration//GEN-END:variables

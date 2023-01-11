@@ -37,6 +37,7 @@ public class TweetDAO
         return listaTweets;
     }
     
+    //Ejemplo de función la cual devuelve el número de tweets almacenados en la colección
     public int numTweets() throws MongoException
     {
         int ret = 0;

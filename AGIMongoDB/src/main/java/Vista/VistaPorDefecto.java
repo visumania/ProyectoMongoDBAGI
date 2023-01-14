@@ -64,7 +64,7 @@ public class VistaPorDefecto extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(179, 179, 179)
+                .addGap(137, 137, 137)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );

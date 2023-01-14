@@ -1,13 +1,15 @@
 package Modelo;
 
+import java.util.Date;
+
 public class Tweet 
 {
-    String id; 
+    String id;
     String username;
     int followers;
     String text;
     String language; 
-    String date;
+    Date date;
     String[] hashtag;
     
     public Tweet()
@@ -20,7 +22,7 @@ public class Tweet
         this.date = null;
     }
     
-    public Tweet(String id, String username, int followers, String text, String language, String date)
+    public Tweet(String id, String username, int followers, String text, String language, Date date)
     {
         this.id = id;
         this.username = username;
@@ -29,7 +31,7 @@ public class Tweet
         this.language = language;
         this.date = date;
     }
-
+    
     public String getId() 
     {
         return id;
@@ -80,12 +82,12 @@ public class Tweet
         this.language = language;
     }
 
-    public String getDate() 
+    public Date getDate() 
     {
         return date;
     }
 
-    public void setDate(String date) 
+    public void setDate(Date date) 
     {
         this.date = date;
     }

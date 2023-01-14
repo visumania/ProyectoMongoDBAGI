@@ -20,6 +20,7 @@ public class Conexion {
     public Conexion(String servidor, int puerto) throws MongoException
     {
         mongo = new MongoClient(servidor, puerto);
+
     }
     
     public MongoClient getConexion()

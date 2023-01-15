@@ -103,11 +103,12 @@ public class VistaEstadisticas extends javax.swing.JPanel {
         jLabelUsuarioConMasTweets5 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        jButtonCambiarColeccionEstadisticas = new javax.swing.JButton();
 
         jLabelColeccion.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabelColeccion.setText("Colección ");
 
-        jComboBoxColecciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Selecciona colección - ", "twitter" }));
+        jComboBoxColecciones.setActionCommand("");
 
         jLabelTweetsAlmacenados.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabelTweetsAlmacenados.setText("Número de tweets almacenados: ");
@@ -135,7 +136,7 @@ public class VistaEstadisticas extends javax.swing.JPanel {
         jLabelFechaMenosReciente.setText("Fecha menos reciente");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jLabel2.setText("Usuarios con más seguidores: ");
+        jLabel2.setText("Usuarios con más menciones: ");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel4.setText("1.-");
@@ -152,15 +153,15 @@ public class VistaEstadisticas extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel8.setText("5.-");
 
-        jLabelUsuarioConMasSeguidores1.setText("UsuarioConMásSeguidores1");
+        jLabelUsuarioConMasSeguidores1.setText("UsuarioConMásMenciones1");
 
-        jLabelUsuarioConMasSeguidores2.setText("UsuarioConMásSeguidores2");
+        jLabelUsuarioConMasSeguidores2.setText("UsuarioConMásMenciones2");
 
-        jLabelUsuarioConMasSeguidores3.setText("UsuarioConMásSeguidores3");
+        jLabelUsuarioConMasSeguidores3.setText("UsuarioConMásMenciones3");
 
-        jLabelUsuarioConMasSeguidores4.setText("UsuarioConMásSeguidores4");
+        jLabelUsuarioConMasSeguidores4.setText("UsuarioConMásMenciones4");
 
-        jLabelUsuarioConMasSeguidores5.setText("UsuarioConMásSeguidores5");
+        jLabelUsuarioConMasSeguidores5.setText("UsuarioConMásMenciones5");
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel9.setText("#Hashtags más utilizados:");
@@ -270,6 +271,9 @@ public class VistaEstadisticas extends javax.swing.JPanel {
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Statistics-Vector-PNG-File.png"))); // NOI18N
         jLabel31.setMaximumSize(new java.awt.Dimension(53, 16));
         jLabel31.setPreferredSize(new java.awt.Dimension(53, 16));
+
+        jButtonCambiarColeccionEstadisticas.setText("Aceptar");
+        jButtonCambiarColeccionEstadisticas.setActionCommand("cambiarColeccion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -387,7 +391,9 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelColeccion)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBoxColecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jComboBoxColecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonCambiarColeccionEstadisticas))
                                     .addComponent(jLabel24)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel25)
@@ -410,7 +416,7 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabelUsuarioConMasTweets5)))
                                 .addGap(2, 2, 2))
-                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))
                     .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -419,12 +425,13 @@ public class VistaEstadisticas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel30)
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTweetsAlmacenados)
                     .addComponent(jLabelNTweetsAlmacenados)
                     .addComponent(jLabelColeccion)
-                    .addComponent(jComboBoxColecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxColecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCambiarColeccionEstadisticas))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPeriodoDeDescarga)
@@ -537,6 +544,7 @@ public class VistaEstadisticas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jButtonCambiarColeccionEstadisticas;
     public javax.swing.JComboBox<String> jComboBoxColecciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

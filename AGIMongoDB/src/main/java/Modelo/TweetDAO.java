@@ -11,8 +11,15 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoIterable;
 import com.mongodb.client.model.Aggregates;
+import static com.mongodb.client.model.Aggregates.match;
 import com.mongodb.client.model.Filters;
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.gte;
+import static com.mongodb.client.model.Filters.in;
+import static com.mongodb.client.model.Filters.lte;
 import com.mongodb.client.model.Projections;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +30,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Stream;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 public class TweetDAO 
 {
@@ -84,23 +92,24 @@ public class TweetDAO
             
         }
         
-        System.out.println(map.toString());
-        
+        collection.createIndex(new Document("text", "text")
+                   .append("default_language", "english")
+                   .append("language_override", "language"));        
     }
     
     //1.- Función que devuelve el número de tweets almacenados en la colección
-    public int numTweets() throws MongoException
+    public int numTweets(String coleccion) throws MongoException
     {
-        MongoCollection colec = db.getCollection("tweets");
+        MongoCollection colec = db.getCollection(coleccion);
         
         return (int) colec.countDocuments();
     }    
     
     //2.1.- Función que devuelve la fecha más reciente de todos los tweets almacenados
-    public Date fechaMasReciente() throws MongoException
+    public Date fechaMasReciente(String coleccion) throws MongoException
     {
         Date fecha = null;
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document sort = new Document("$sort", new Document("created", -1));
         Document limit = new Document("$limit",1);
@@ -122,10 +131,10 @@ public class TweetDAO
     }
     
     //2.2.- Función que devuelve la fecha menos reciente de todos los tweets almacenados
-    public Date fechaMenosReciente() throws MongoException
+    public Date fechaMenosReciente(String coleccion) throws MongoException
     {
         Date fecha = null;
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document sort = new Document("$sort", new Document("created", -1));
         Document limit = new Document("$limit",1);
@@ -147,10 +156,10 @@ public class TweetDAO
     }
     
     //3.- Función que devuelve el nombre del usuario con más seguidores y el número de seguidores
-    public Tweet usuarioConMasSeguidores() throws MongoException
+    public Tweet usuarioConMasSeguidores(String coleccion) throws MongoException
     {
         Tweet tweet = new Tweet();
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document sort = new Document("$sort", new Document("followers",-1));
         Document limit = new Document("$limit", 1);
@@ -177,10 +186,10 @@ public class TweetDAO
     }
     
     //4.- Función que devuelve a los 5 usuarios más mencionados junto con su frecuencia en todos los tweets
-    public List<Entry<String, Integer>> usuariosMasMencionados() throws MongoException
+    public List<Entry<String, Integer>> usuariosMasMencionados(String coleccion) throws MongoException
     {
         Map<String, Integer> map = new HashMap<String, Integer>();
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document project = new Document("$project", new Document("_id",0).append("text", 1));
         
@@ -228,9 +237,9 @@ public class TweetDAO
     }
     
     //5.- Función que devuelve los 5 #Hashtags más utilizados en los tweets con su frecuencia
-    public ArrayList<String> hashtagsMasUtilizados() throws MongoException
+    public ArrayList<String> hashtagsMasUtilizados(String coleccion) throws MongoException
     {
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         ArrayList<String> ret = new ArrayList<String>(); 
         
         Document unwind = new Document("$unwind", new Document("path", "$hashtags"));
@@ -255,9 +264,9 @@ public class TweetDAO
     }
     
     //6.- Función que devuelve el número de idiomas diferentes utilizados en los tweets almacenados en la colección
-    public int numeroIdiomasDiferentes() throws MongoException
+    public int numeroIdiomasDiferentes(String coleccion) throws MongoException
     {
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         int numIdiomasDiferentes = 0; 
         
         Document group = new Document("$group", new Document("_id", "$language"));
@@ -279,9 +288,9 @@ public class TweetDAO
     }
     
     //7.- Función que devuelve los 5 idiomas más frecuentes en los tweets junto con su frecuencia
-    public ArrayList<String> idiomasMasFrecuentes() throws MongoException
+    public ArrayList<String> idiomasMasFrecuentes(String coleccion) throws MongoException
     {
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         ArrayList<String> ret = new ArrayList<String>();
         
         Document group = new Document("$group", new Document("_id", "$language").append("count", new Document("$sum", 1)));
@@ -305,9 +314,9 @@ public class TweetDAO
     }
     
     //8.- Función que devuelve los número de tweets que son RT's
-    public int numeroDeRT() throws MongoException
+    public int numeroDeRT(String coleccion) throws MongoException
     {
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         int numeroRT = 0;
         
         Document project = new Document("$project", new Document("_id",0).append("text", 1));
@@ -332,9 +341,9 @@ public class TweetDAO
     }
     
     //9.- Función que devuelve el número de usuario diferentes de los cuales se almacenan tweets en la colección
-    public int numeroDeUsuariosDiferentes() throws MongoException
+    public int numeroDeUsuariosDiferentes(String coleccion) throws MongoException
     {
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         int nUsuariosDiferentes = 0;
         
         Document group = new Document("$group", new Document("_id", "$username"));
@@ -357,9 +366,9 @@ public class TweetDAO
     }
     
     //10.- Función que devuelve a los usuarios que más tweets tienen almacenados en la colección junto con su frecuencia
-    public ArrayList<String> usuariosFrecuenciaTweets() throws MongoException
+    public ArrayList<String> usuariosFrecuenciaTweets(String coleccion) throws MongoException
     {
-        MongoCollection<Document> collection = db.getCollection("tweets");
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         ArrayList<String> ret = new ArrayList<String>();
         
         Document group = new Document("$group", new Document("_id", "$username").append("count", new Document("$sum", 1)));
@@ -381,67 +390,125 @@ public class TweetDAO
         
         return ret;
     }
+    
+    //Función para recuperar toda la información de una tabla
+    public ArrayList<Tweet> listaTweets(String coleccion, int numeroMinSeguidores, int numeroMaxSeguidores, String usuario, String hashtag, String palabra, List<String> idiomas) throws MongoException
+    {   
+        ArrayList<Tweet> lTweets = new ArrayList<Tweet>();
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         
-    //Ejemplo de función para recuperar toda la información de una tabla
-    /*public ArrayList<Tweet> listaTweets() throws MongoException
-    {
-        ArrayList<Tweet> listaTweets = new ArrayList();
+        //Único campo obligatorio en la consulta: Rango de seguidores
+        Bson criterio1 = match(and(gte("followers", numeroMinSeguidores), lte("followers", numeroMaxSeguidores))); 
         
-        MongoCollection colec = db.getCollection("tweets");
+        //Búsqueda por usuario
+        Bson criterio2 = match(eq("username", usuario));
         
-        MongoCursor cursor = colec.find();
+        //Búsqueda por hashtag
+        Bson criterio3 = match(eq("hashtags.text", hashtag));
         
-        while(cursor.hasNext())
+        //Búsqueda por palabra o expresión específica dentro del campo texto
+        Bson criterio4 = match(eq("text", palabra));
+        //Bson criterio4 = Aggregates.match(Filters.text("texto"));
+        
+        //Búsqueda por idioma/s
+        Bson criterio5 = match(in("language", idiomas));
+               
+        List<Bson> pipeline = new ArrayList<>();
+        pipeline.add(criterio1);
+        
+        if(!usuario.equals("")) 
+            pipeline.add(criterio2);
+        
+        if(!hashtag.equals(""))
+            pipeline.add(criterio3);
+        
+        if(!palabra.equals(""))
+            pipeline.add(criterio4);
+        
+        if(idiomas.size()>0)
+            pipeline.add(criterio5);
+        
+        AggregateIterable<Document> result = collection.aggregate(pipeline);
+        
+        MongoCursor<Document> result2 = result.iterator();
+        
+        while(result2.hasNext())
         {
-            Tweet tweet = new Tweet(cursor.next().get("id").toString(), cursor.curr().get("username").toString(), Integer.parseInt(cursor.curr().get("followers").toString()), cursor.curr().get("text").toString(), cursor.curr().get("language").toString(), cursor.curr().get("created").toString());
-            listaTweets.add(tweet);
+            Document document = result2.next();
+            
+            
+            Tweet tweet = new Tweet(document.getString("id"),
+                    document.getString("username"),
+                    document.getInteger("followers"), 
+                    document.getString("text"), 
+                    document.getString("language"),
+                    document.getDate("created"));
+            
+            lTweets.add(tweet);
         }
         
-        cursor.close();
-        
-        return listaTweets;
-    }*/
+        return lTweets;
+    }
     
-    //Función que devuelve un array cuya primera posición [0] es el tweet más antiguo y la segunda posición [1] es el último tweet almacenado
-    /*public ArrayList<Tweet> periodoDescarga() throws MongoException
+    //Funcion para obtener las colecciones que tiene la base de datos Twitter
+    public MongoIterable<String> nombreColecciones() throws MongoException
     {
-        ArrayList<Tweet> listaTweets = new ArrayList();
-        
-        DBCollection colec = db.getCollection("tweets");
-        
-        
-        return listaTweets;
-    }*/
+        return db.listCollectionNames();
+    }
     
-    //Función que devuelve el tweet más antiguo almacenado en la colección
-    /*public String tweetMasAntiguo() throws MongoException
+    //Función para buscar tweets de un usuario: 
+    public ArrayList<Tweet> busquedaNombreUsuario(String coleccion, String usuario) throws MongoException
     {
-        //DBCollection colec = db.getCollection("tweet");
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
-        MongoDatabase db = mongoClient.getDatabase("tweet");
+        ArrayList<Tweet> lTweets = new ArrayList<Tweet>();
+        MongoCollection<Document> collection = db.getCollection(coleccion);
         
-        MongoCollection<Document> colec = db.getCollection("tweet");
-        /*colec.aggregate(
-            Arrays.asList(
-                Aggregates.match(
-                    Filters.eq("username", "dailyheadliner")
-                ),
-                Aggregates.project(
-                    Projections.fields(
-                            Projections.excludeId(), 
-                            Projections.exclude("followers"), 
-                            Projections.exclude("text"), 
-                            Projections.exclude("hashtag"),
-                            Projections.exclude("language"),
-                            Projections.exclude("created")
-                    )
-                ),
-                Aggregates.limit(1)
-            )
-        );    
+        Document match = new Document("$match", new Document("username", usuario));
         
-        colec.aggregate();
+        List<Document> pipeline = Arrays.asList(match);
         
-        return "";
-    }*/
+        AggregateIterable<Document> result = collection.aggregate(pipeline);
+        
+        MongoCursor<Document> result2 = result.iterator();
+        
+        while(result2.hasNext())
+        {
+            Document document = result2.next();
+            
+            Tweet tweet = new Tweet(document.getString("id"),
+                    document.getString("username"),
+                    document.getInteger("followers"), 
+                    document.getString("text"), 
+                    document.getString("language"),
+                    document.getDate("created"));
+            
+            lTweets.add(tweet);
+        }
+        
+        return lTweets; 
+    }
+    
+    //Función que devuelve el listado de idiomas de la colección, sirve para rellenar el JList de idiomas
+    public ArrayList<String> listadoIdiomas(String coleccion) throws MongoException
+    {
+        ArrayList<String> idiomas = new ArrayList<String>();
+        MongoCollection<Document> collection = db.getCollection(coleccion);
+        
+        Document group = new Document("$group", new Document("_id", "$language"));
+        Document sort = new Document("$sort", new Document("_id",1));
+        
+        List<Document> pipeline = Arrays.asList(group, sort);
+        
+        AggregateIterable<Document> result = collection.aggregate(pipeline);
+        
+        MongoCursor<Document> result2 = result.iterator();
+        
+        while(result2.hasNext())
+        {
+            Document document = result2.next();
+            
+            idiomas.add(document.getString("_id"));
+        }
+        
+        return idiomas;
+    }
 }

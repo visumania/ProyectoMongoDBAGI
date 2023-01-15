@@ -1,6 +1,8 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Tweet 
 {
@@ -10,7 +12,6 @@ public class Tweet
     String text;
     String language; 
     Date date;
-    String[] hashtag;
     
     public Tweet()
     {
@@ -71,7 +72,7 @@ public class Tweet
     {
         this.text = text;
     }
-
+    
     public String getLanguage() 
     {
         return language;

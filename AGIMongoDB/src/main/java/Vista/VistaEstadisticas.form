@@ -155,6 +155,8 @@
                                       <Component id="jLabelColeccion" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jComboBoxColecciones" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonCambiarColeccionEstadisticas" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -185,7 +187,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel31" max="32767" attributes="0"/>
+                          <Component id="jLabel31" pref="278" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel30" alignment="1" max="32767" attributes="0"/>
@@ -199,12 +201,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelTweetsAlmacenados" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelNTweetsAlmacenados" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelColeccion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxColecciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCambiarColeccionEstadisticas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -352,11 +355,9 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxColecciones">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="- Selecciona colecci&#xf3;n - "/>
-            <StringItem index="1" value="twitter"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
+        <Property name="actionCommand" type="java.lang.String" value=""/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -447,7 +448,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Usuarios con m&#xe1;s seguidores: "/>
+        <Property name="text" type="java.lang.String" value="Usuarios con m&#xe1;s menciones: "/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -510,7 +511,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sSeguidores1"/>
+        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones1"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -518,7 +519,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sSeguidores2"/>
+        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -526,7 +527,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sSeguidores3"/>
+        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones3"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -534,7 +535,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sSeguidores4"/>
+        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones4"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -542,7 +543,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sSeguidores5"/>
+        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones5"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -885,6 +886,15 @@
           <Dimension value="[53, 16]"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCambiarColeccionEstadisticas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="actionCommand" type="java.lang.String" value="cambiarColeccion"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

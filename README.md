@@ -99,3 +99,13 @@ db.tweets.aggregate([
 
 ###### Consultas parametrizadas
 Mostrar una tabla con todos los tweets de la colección seleccionada y abajo diferentes campos que pueden ser rellenados y que vaya filtrando datos. También tendrá un botón para crear nuevas colecciones (habrá que introducirle un nombre y no podrá coincidir con ninguno de las colecciones que ya estén creadas anteriormente).
+
+**Criterios de búsqueda de la consulta parametrizada** 
+1. Búsqueda por rango de seguidores (Único obligatorio)
+2. Busqueda por usuario
+3. Busqueda por hashtag
+4. Búsqueda por palabra o expresiones específica del tweet (necesito índice de texto). Índice:
+```mongodb
+db.tweets.createIndex( { "text": "text" }, { default_language: "english", language_override: "english" } )
+```
+5. Idioma/s

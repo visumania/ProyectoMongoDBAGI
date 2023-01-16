@@ -136,7 +136,7 @@ public class TweetDAO
         Date fecha = null;
         MongoCollection<Document> collection = db.getCollection(coleccion);
         
-        Document sort = new Document("$sort", new Document("created", -1));
+        Document sort = new Document("$sort", new Document("created", 1));
         Document limit = new Document("$limit",1);
         
         List<Document> pipeline = Arrays.asList(sort, limit);
@@ -392,7 +392,7 @@ public class TweetDAO
     }
     
     //Función para recuperar toda la información de una tabla
-    public ArrayList<Tweet> listaTweets(String coleccion, int numeroMinSeguidores, int numeroMaxSeguidores, String usuario, String hashtag, String palabra, List<String> idiomas) throws MongoException
+    public ArrayList<Tweet> listaTweets(String coleccion, int numeroMinSeguidores, int numeroMaxSeguidores, String usuario, String hashtag, String palabra, List<String> idiomas, boolean volcar, String nombreNuevaColeccion) throws MongoException
     {   
         ArrayList<Tweet> lTweets = new ArrayList<Tweet>();
         MongoCollection<Document> collection = db.getCollection(coleccion);
@@ -407,13 +407,16 @@ public class TweetDAO
         Bson criterio3 = match(eq("hashtags.text", hashtag));
         
         //Búsqueda por palabra o expresión específica dentro del campo texto
-        Bson criterio4 = match(eq("text", palabra));
-        //Bson criterio4 = Aggregates.match(Filters.text("texto"));
+        Bson criterio4 = Aggregates.match(Filters.text(palabra));
         
         //Búsqueda por idioma/s
         Bson criterio5 = match(in("language", idiomas));
                
         List<Bson> pipeline = new ArrayList<>();
+        
+        if(!palabra.equals("")) // Hacemos esta comprobación primero porque las búsquedas por palabras van primero
+            pipeline.add(criterio4);
+        
         pipeline.add(criterio1);
         
         if(!usuario.equals("")) 
@@ -421,9 +424,6 @@ public class TweetDAO
         
         if(!hashtag.equals(""))
             pipeline.add(criterio3);
-        
-        if(!palabra.equals(""))
-            pipeline.add(criterio4);
         
         if(idiomas.size()>0)
             pipeline.add(criterio5);
@@ -445,6 +445,13 @@ public class TweetDAO
                     document.getDate("created"));
             
             lTweets.add(tweet);
+        }
+        
+        if(volcar && !nombreNuevaColeccion.equals(""))
+        {
+            MongoCollection<Document> newCollection = db.getCollection(nombreNuevaColeccion);
+            newCollection.insertMany(result.into(new ArrayList<Document>()));
+            System.out.println("Insertado!!!!!");
         }
         
         return lTweets;
@@ -510,5 +517,35 @@ public class TweetDAO
         }
         
         return idiomas;
+    }
+    
+    //Función que devuelve el tweet del usuario con menos seguidores de la colección
+    public Tweet usuarioConMenosSeguidores(String coleccion) throws MongoException
+    {
+        Tweet tweet = new Tweet();
+        MongoCollection<Document> collection = db.getCollection(coleccion);
+        
+        Document sort = new Document("$sort", new Document("followers",1));
+        Document limit = new Document("$limit", 1);
+        
+        List<Document> pipeline = Arrays.asList(sort, limit);
+        
+        AggregateIterable<Document> result = collection.aggregate(pipeline);
+        
+        MongoCursor<Document> result2 = result.iterator();
+        
+        if(result2.hasNext())
+        {
+            Document document = result2.next();
+            
+            tweet.setId(document.getString("id"));
+            tweet.setUsername(document.getString("username"));
+            tweet.setFollowers(document.getInteger("followers"));
+            tweet.setText(document.getString("text"));
+            tweet.setLanguage(document.getString("language"));
+            tweet.setDate(document.getDate("created"));
+        }
+        
+        return tweet;
     }
 }

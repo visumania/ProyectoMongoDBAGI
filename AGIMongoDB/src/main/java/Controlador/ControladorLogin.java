@@ -16,6 +16,7 @@ public class ControladorLogin implements ActionListener
     private VistaLoginPrincipal vLoginPrincipal;
     private VistaMensajes vMensajes;
     private VistaLoginLocalhost vLoginLocalhost;
+    private VistaLoginCluster vLoginCluster;
     
     public ControladorLogin()
     {
@@ -23,6 +24,7 @@ public class ControladorLogin implements ActionListener
         vConsola = new VistaConsola();
         vMensajes = new VistaMensajes();
         vLoginLocalhost = new VistaLoginLocalhost();
+        vLoginCluster = new VistaLoginCluster();
         
         addListeners();
         
@@ -36,6 +38,8 @@ public class ControladorLogin implements ActionListener
         vLoginPrincipal.jButtonLocalHost.addActionListener(this);
         
         vLoginLocalhost.jButtonConectar.addActionListener(this);
+        
+        vLoginCluster.jButtonConectarCluster.addActionListener(this);
     }
     
     
@@ -45,8 +49,8 @@ public class ControladorLogin implements ActionListener
         
         String servidor = vLoginLocalhost.jTextFieldLocalhost.getText();
         int puerto = Integer.parseInt(vLoginLocalhost.jTextFieldPuerto.getText());
-        
         conexion = new Conexion(servidor, puerto);
+        
         if(conexion != null)
         {
             vMensajes.vistaMensajeExito();
@@ -55,6 +59,23 @@ public class ControladorLogin implements ActionListener
         else
             vMensajes.vistaMensajeError("Error en la conexión");
         
+        return resultado; 
+    }
+    
+    public boolean conectarCluster()
+    {
+        boolean resultado = false;
+        String uri = vLoginCluster.jTextFieldURI.getText();
+        conexion = new Conexion(uri);
+        
+        if(conexion != null)
+        {
+            vMensajes.vistaMensajeExito();
+            resultado = true;
+        }
+        else
+            vMensajes.vistaMensajeError("Error en la conexión con el clúster");
+                
         return resultado; 
     }
     
@@ -87,6 +108,9 @@ public class ControladorLogin implements ActionListener
                 break;
                 
             case "cluster":
+                vLoginPrincipal.dispose();
+                vLoginCluster.setLocationRelativeTo(null);
+                vLoginCluster.setVisible(true);
                 break;
                 
             case "ConectarLocalHost":
@@ -95,6 +119,15 @@ public class ControladorLogin implements ActionListener
                 {
                     vLoginLocalhost.dispose();
                     Controlador controlador = new Controlador(conexion);
+                }
+                break;
+                
+            case "ConectarCluster":
+                conexionOK = conectarCluster();
+                if(conexionOK)
+                {
+                    vLoginCluster.dispose();
+                    Controlador controlador =  new Controlador(conexion);
                 }
                 break;
         }

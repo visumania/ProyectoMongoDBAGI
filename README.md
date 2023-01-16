@@ -2,6 +2,9 @@
 En este repositorio iremos subiendo el proyecto y sus respectivos actualizaciones
 El archivo README.md se quedará para ir escribiendo notas y decisiones que iremos tomando a lo largo del desarrollo de la aplicación.
 
+*Link interesantes:*
+- [Numero 1](http://ualmtorres.github.io/howtos/MongoDBJava/)
+
 **Temática de los tweets** *(no están repartidos equitativamente)*:
 - Qatar2022
 - Ukraine
@@ -94,9 +97,6 @@ db.tweets.aggregate([
   ])
 ```
 
-*Link interesantes:*
-- [Numero 1](http://ualmtorres.github.io/howtos/MongoDBJava/)
-
 ###### Consultas parametrizadas
 Mostrar una tabla con todos los tweets de la colección seleccionada y abajo diferentes campos que pueden ser rellenados y que vaya filtrando datos. También tendrá un botón para crear nuevas colecciones (habrá que introducirle un nombre y no podrá coincidir con ninguno de las colecciones que ya estén creadas anteriormente).
 
@@ -108,4 +108,14 @@ Mostrar una tabla con todos los tweets de la colección seleccionada y abajo dif
 ```mongodb
 db.tweets.createIndex( { "text": "text" }, { default_language: "english", language_override: "english" } )
 ```
-5. Idioma/s
+5. Búsqueda por idioma/s
+
+###### Conexión al cluster:
+[Página web](https://cloud.mongodb.com/v2/63c5b733d422044a0372b3b4#/clusters/detail/ProyectoFinalAGI)
+usuario: pablian
+contraseña: pablian
+
+**Acciones que me quedan pendientes antes de terminar el proyecto al 100%**
+- Creación de más índices (a parte del de texto que ya tengo creado) y hacer un estudio de la eficiencia de las consultas comparando su ejecución utilizando y sin utulizar los índices. 
+- Creación de mecanismos de seguridad (opcional, mirar diapositivas de seguridad)
+- Modificación del script de descarga y almacenamiento de los tweets para que permita interacción con el usuario --> Pedir palabras que desea buscar en los tweets y la cantidad de tweets que quiere almacenar.

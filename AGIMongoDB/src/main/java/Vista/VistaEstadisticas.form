@@ -49,12 +49,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelUsuarioConMasSeguidores3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelUsuarioConMasMenciones3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelUsuarioConMasSeguidores4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelUsuarioConMasMenciones4" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -63,8 +63,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelUsuarioConMasSeguidores1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelUsuarioConMasSeguidores2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelUsuarioConMasMenciones1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelUsuarioConMasMenciones2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelUsuarioConMasSeguidores5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelUsuarioConMasMenciones5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -232,35 +232,35 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUsuarioConMasSeguidores1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelUsuarioConMasMenciones1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUsuarioConMasTweets1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUsuarioConMasSeguidores2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelUsuarioConMasMenciones2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUsuarioConMasTweets2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUsuarioConMasSeguidores3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelUsuarioConMasMenciones3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUsuarioConMasTweets3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUsuarioConMasSeguidores4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelUsuarioConMasMenciones4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUsuarioConMasTweets4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUsuarioConMasSeguidores5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelUsuarioConMasMenciones5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUsuarioConMasTweets5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -509,42 +509,27 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones1"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasMenciones1">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones2"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasMenciones2">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones3"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasMenciones3">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones4"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasMenciones4">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasSeguidores5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConM&#xe1;sMenciones5"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasMenciones5">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -598,41 +583,26 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelHashtagMasUtilizado1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="HashtagM&#xe1;sUtilizado1"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelHashtagMasUtilizado2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="HashtagM&#xe1;sUtilizado2"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelHashtagMasUtilizado3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="HashtagM&#xe1;sUtilizado3"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelHashtagMasUtilizado4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="HashtagM&#xe1;sUtilizado4"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelHashtagMasUtilizado5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="HashtagM&#xe1;sUtilizado5"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -702,41 +672,26 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIdiomaMasUtilizado1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="IdiomaM&#xe1;sUtilizado1"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIdiomaMasUtilizado2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="IdiomaM&#xe1;sUtilizado2"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIdiomaMasUtilizado3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="IdiomaM&#xe1;sUtilizado3"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIdiomaMasUtilizado4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="IdiomaM&#xe1;sUtilizado4"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIdiomaMasUtilizado5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="IdiomaM&#xe1;sUtilizado5"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -822,41 +777,26 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasTweets1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConMasTweets1"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasTweets2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConMasTweets2"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasTweets3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConMasTweets3"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasTweets4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConMasTweets4"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuarioConMasTweets5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="UsuarioConMasTweets5"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

@@ -57,11 +57,11 @@ public class VistaEstadisticas extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabelUsuarioConMasSeguidores1 = new javax.swing.JLabel();
-        jLabelUsuarioConMasSeguidores2 = new javax.swing.JLabel();
-        jLabelUsuarioConMasSeguidores3 = new javax.swing.JLabel();
-        jLabelUsuarioConMasSeguidores4 = new javax.swing.JLabel();
-        jLabelUsuarioConMasSeguidores5 = new javax.swing.JLabel();
+        jLabelUsuarioConMasMenciones1 = new javax.swing.JLabel();
+        jLabelUsuarioConMasMenciones2 = new javax.swing.JLabel();
+        jLabelUsuarioConMasMenciones3 = new javax.swing.JLabel();
+        jLabelUsuarioConMasMenciones4 = new javax.swing.JLabel();
+        jLabelUsuarioConMasMenciones5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -153,16 +153,6 @@ public class VistaEstadisticas extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel8.setText("5.-");
 
-        jLabelUsuarioConMasSeguidores1.setText("UsuarioConMásMenciones1");
-
-        jLabelUsuarioConMasSeguidores2.setText("UsuarioConMásMenciones2");
-
-        jLabelUsuarioConMasSeguidores3.setText("UsuarioConMásMenciones3");
-
-        jLabelUsuarioConMasSeguidores4.setText("UsuarioConMásMenciones4");
-
-        jLabelUsuarioConMasSeguidores5.setText("UsuarioConMásMenciones5");
-
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel9.setText("#Hashtags más utilizados:");
 
@@ -180,16 +170,6 @@ public class VistaEstadisticas extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel14.setText("5.-");
-
-        jLabelHashtagMasUtilizado1.setText("HashtagMásUtilizado1");
-
-        jLabelHashtagMasUtilizado2.setText("HashtagMásUtilizado2");
-
-        jLabelHashtagMasUtilizado3.setText("HashtagMásUtilizado3");
-
-        jLabelHashtagMasUtilizado4.setText("HashtagMásUtilizado4");
-
-        jLabelHashtagMasUtilizado5.setText("HashtagMásUtilizado5");
 
         jLabel15.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel15.setText("Número de idiomas diferentes: ");
@@ -213,16 +193,6 @@ public class VistaEstadisticas extends javax.swing.JPanel {
 
         jLabel21.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel21.setText("5.-");
-
-        jLabelIdiomaMasUtilizado1.setText("IdiomaMásUtilizado1");
-
-        jLabelIdiomaMasUtilizado2.setText("IdiomaMásUtilizado2");
-
-        jLabelIdiomaMasUtilizado3.setText("IdiomaMásUtilizado3");
-
-        jLabelIdiomaMasUtilizado4.setText("IdiomaMásUtilizado4");
-
-        jLabelIdiomaMasUtilizado5.setText("IdiomaMásUtilizado5");
 
         jLabel22.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel22.setText("Número de Retweets en la colección:");
@@ -251,16 +221,6 @@ public class VistaEstadisticas extends javax.swing.JPanel {
 
         jLabel29.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel29.setText("5.-");
-
-        jLabelUsuarioConMasTweets1.setText("UsuarioConMasTweets1");
-
-        jLabelUsuarioConMasTweets2.setText("UsuarioConMasTweets2");
-
-        jLabelUsuarioConMasTweets3.setText("UsuarioConMasTweets3");
-
-        jLabelUsuarioConMasTweets4.setText("UsuarioConMasTweets4");
-
-        jLabelUsuarioConMasTweets5.setText("UsuarioConMasTweets5");
 
         jLabel30.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 153, 255));
@@ -308,19 +268,19 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelUsuarioConMasSeguidores3))
+                                .addComponent(jLabelUsuarioConMasMenciones3))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelUsuarioConMasSeguidores4))
+                                .addComponent(jLabelUsuarioConMasMenciones4))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelUsuarioConMasSeguidores1)
-                                    .addComponent(jLabelUsuarioConMasSeguidores2)))
+                                    .addComponent(jLabelUsuarioConMasMenciones1)
+                                    .addComponent(jLabelUsuarioConMasMenciones2)))
                             .addComponent(jLabel9)
                             .addComponent(jLabel16)
                             .addGroup(layout.createSequentialGroup()
@@ -359,7 +319,7 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabelUsuarioConMasSeguidores5)))
+                                    .addComponent(jLabelUsuarioConMasMenciones5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -452,31 +412,31 @@ public class VistaEstadisticas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabelUsuarioConMasSeguidores1)
+                    .addComponent(jLabelUsuarioConMasMenciones1)
                     .addComponent(jLabel25)
                     .addComponent(jLabelUsuarioConMasTweets1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabelUsuarioConMasSeguidores2)
+                    .addComponent(jLabelUsuarioConMasMenciones2)
                     .addComponent(jLabel26)
                     .addComponent(jLabelUsuarioConMasTweets2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabelUsuarioConMasSeguidores3)
+                    .addComponent(jLabelUsuarioConMasMenciones3)
                     .addComponent(jLabel27)
                     .addComponent(jLabelUsuarioConMasTweets3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabelUsuarioConMasSeguidores4)
+                    .addComponent(jLabelUsuarioConMasMenciones4)
                     .addComponent(jLabel28)
                     .addComponent(jLabelUsuarioConMasTweets4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabelUsuarioConMasSeguidores5)
+                    .addComponent(jLabelUsuarioConMasMenciones5)
                     .addComponent(jLabel29)
                     .addComponent(jLabelUsuarioConMasTweets5))
                 .addGap(18, 18, 18)
@@ -599,12 +559,12 @@ public class VistaEstadisticas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPeriodoDeDescarga;
     private javax.swing.JLabel jLabelTweetsAlmacenados;
     public javax.swing.JLabel jLabelUsername;
+    public javax.swing.JLabel jLabelUsuarioConMasMenciones1;
+    public javax.swing.JLabel jLabelUsuarioConMasMenciones2;
+    public javax.swing.JLabel jLabelUsuarioConMasMenciones3;
+    public javax.swing.JLabel jLabelUsuarioConMasMenciones4;
+    public javax.swing.JLabel jLabelUsuarioConMasMenciones5;
     private javax.swing.JLabel jLabelUsuarioConMasSeguidores;
-    public javax.swing.JLabel jLabelUsuarioConMasSeguidores1;
-    public javax.swing.JLabel jLabelUsuarioConMasSeguidores2;
-    public javax.swing.JLabel jLabelUsuarioConMasSeguidores3;
-    public javax.swing.JLabel jLabelUsuarioConMasSeguidores4;
-    public javax.swing.JLabel jLabelUsuarioConMasSeguidores5;
     public javax.swing.JLabel jLabelUsuarioConMasTweets1;
     public javax.swing.JLabel jLabelUsuarioConMasTweets2;
     public javax.swing.JLabel jLabelUsuarioConMasTweets3;

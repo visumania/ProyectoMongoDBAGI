@@ -1,13 +1,7 @@
 package Modelo;
 
-import com.mongodb.Block;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.client.AggregateIterable;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -20,7 +14,6 @@ import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Filters.in;
 import static com.mongodb.client.model.Filters.lte;
-import com.mongodb.client.model.Projections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -28,73 +21,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.stream.Stream;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
 public class TweetDAO 
 {
     Conexion conexion = null; 
-    //MongoClient mongoClient = null;
     MongoDatabase db = null;
     
     public TweetDAO(Conexion c)
     {
         this.conexion = c;
         db = c.getConexion().getDatabase("Twitter");
-    }
-    
-    public void metodoPrueba()
-    {
-        // Seleccionamos la colección "tweets"
-        MongoCollection<Document> collection = db.getCollection("tweets");
-
-        // Creamos nuestro pipelina de operaciones, primero con el operador $match
-        Document match = new Document("$match", new Document("username", "dailyheadliner"));  
-
-        // Juntamos nuestro pipeline de operaciones en una lista
-        List<Document> pipeline = Arrays.asList(match);
-
-        // Hacemos la agregación 
-        AggregateIterable<Document> result = collection.aggregate(pipeline);
-        
-        // Convertimos el resultado a un objeto que sea iterable
-        MongoCursor<Document> result2 = result.iterator();
-        
-        while (result2.hasNext()) {
-          Document document = result2.next();
-
-          System.out.println(document.getString("username"));
-        }
-        
-        String prueba = "Hola mundo Hola Adrian mundo @Adri @Adrian @Adri";
-        String[] tokens = prueba.split("\\s+|\n");
-        
-        /*for(int i=0; i<tokens.length; i++)
-        {
-            System.out.println(tokens[i]);
-        }*/
-        
-        Map<String, Integer> map = new HashMap<String, Integer>();
-        
-        //map.put(tokens[0], 1);
-        //System.out.println(map.);
-        
-        for(int i=0; i<tokens.length; i++)
-        {
-            if(tokens[i].startsWith("@") && tokens[i].length()>1)
-            {
-                if(map.putIfAbsent(tokens[i], 1) != null)
-                {
-                    map.put(tokens[i], map.get(tokens[i])+1);
-                }
-            }
-            
-        }
-        
-        collection.createIndex(new Document("text", "text")
-                   .append("default_language", "english")
-                   .append("language_override", "language"));        
     }
     
     //1.- Función que devuelve el número de tweets almacenados en la colección
@@ -112,9 +51,10 @@ public class TweetDAO
         MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document sort = new Document("$sort", new Document("created", -1));
+        Document project = new Document("$project", new Document("_id",0).append("created", 1));
         Document limit = new Document("$limit",1);
         
-        List<Document> pipeline = Arrays.asList(sort, limit);
+        List<Document> pipeline = Arrays.asList(sort, project, limit);
         
         AggregateIterable<Document> result = collection.aggregate(pipeline);
         
@@ -137,9 +77,10 @@ public class TweetDAO
         MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document sort = new Document("$sort", new Document("created", 1));
+        Document project = new Document("$project", new Document("_id",0).append("created", 1));
         Document limit = new Document("$limit",1);
         
-        List<Document> pipeline = Arrays.asList(sort, limit);
+        List<Document> pipeline = Arrays.asList(sort, project, limit);
         
         AggregateIterable<Document> result = collection.aggregate(pipeline);
         
@@ -162,9 +103,10 @@ public class TweetDAO
         MongoCollection<Document> collection = db.getCollection(coleccion);
         
         Document sort = new Document("$sort", new Document("followers",-1));
+        Document project = new Document("$project", new Document("_id",0).append("username", 1).append("followers", 1));
         Document limit = new Document("$limit", 1);
         
-        List<Document> pipeline = Arrays.asList(sort, limit);
+        List<Document> pipeline = Arrays.asList(sort, project, limit);
         
         AggregateIterable<Document> result = collection.aggregate(pipeline);
         
@@ -174,12 +116,8 @@ public class TweetDAO
         {
             Document document = result2.next();
             
-            tweet.setId(document.getString("id"));
             tweet.setUsername(document.getString("username"));
             tweet.setFollowers(document.getInteger("followers"));
-            tweet.setText(document.getString("text"));
-            tweet.setLanguage(document.getString("language"));
-            tweet.setDate(document.getDate("created"));
         }
         
         return tweet;
@@ -451,7 +389,7 @@ public class TweetDAO
         {
             MongoCollection<Document> newCollection = db.getCollection(nombreNuevaColeccion);
             newCollection.insertMany(result.into(new ArrayList<Document>()));
-            System.out.println("Insertado!!!!!");
+            JOptionPane.showMessageDialog(null, "La colección " + nombreNuevaColeccion +  " ha sido creada correctamente", "", 1);
         }
         
         return lTweets;
@@ -463,36 +401,6 @@ public class TweetDAO
         return db.listCollectionNames();
     }
     
-    //Función para buscar tweets de un usuario: 
-    public ArrayList<Tweet> busquedaNombreUsuario(String coleccion, String usuario) throws MongoException
-    {
-        ArrayList<Tweet> lTweets = new ArrayList<Tweet>();
-        MongoCollection<Document> collection = db.getCollection(coleccion);
-        
-        Document match = new Document("$match", new Document("username", usuario));
-        
-        List<Document> pipeline = Arrays.asList(match);
-        
-        AggregateIterable<Document> result = collection.aggregate(pipeline);
-        
-        MongoCursor<Document> result2 = result.iterator();
-        
-        while(result2.hasNext())
-        {
-            Document document = result2.next();
-            
-            Tweet tweet = new Tweet(document.getString("id"),
-                    document.getString("username"),
-                    document.getInteger("followers"), 
-                    document.getString("text"), 
-                    document.getString("language"),
-                    document.getDate("created"));
-            
-            lTweets.add(tweet);
-        }
-        
-        return lTweets; 
-    }
     
     //Función que devuelve el listado de idiomas de la colección, sirve para rellenar el JList de idiomas
     public ArrayList<String> listadoIdiomas(String coleccion) throws MongoException

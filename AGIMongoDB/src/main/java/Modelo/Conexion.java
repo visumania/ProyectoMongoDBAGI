@@ -3,20 +3,11 @@ package Modelo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.MongoException;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Conexion {
     
     private MongoClient mongo = null;
-    
-    /*public Conexion() throws MongoException
-    {
-        String servidor = "localhost";
-        int puerto = 27017;
-        
-        mongo = new MongoClient(servidor, puerto);
-    }*/
     
     public Conexion(String servidor, int puerto) throws MongoException
     {

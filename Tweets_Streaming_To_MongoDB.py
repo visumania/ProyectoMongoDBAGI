@@ -81,10 +81,20 @@ if __name__ == '__main__':
     try:
 
         cliente = MongoClient(stringConexion)
-        limite = 27944
-        bd = cliente.Twitter
+        print("¿Cuantos tweets quieres almacenar?")
+        limite = input()
+        bd = cliente.API
+        palabrasBusqueda = []
+        tmp=""
+        while tmp!='n':
+            print("Inserte una palabra: ")
+            tmp = input()
+            palabrasBusqueda.append(tmp)
+            print("Desea seguir introduciendo?(s/n)")
+            tmp=input()
+            
         MiStream = MiClaseTwitter(consumer_key, consumer_secret, access_token, access_token_secret, bd=bd, limite=limite)
-        MiStream.filter(track = ['Qatar2022' , 'Ukraine' , 'Messi' , 'Inflation' , 'Health', 'Huelva', 'UHU', 'Recreativo de Huelva', 'Nuevo Colombino', 'USA', 'Goku'])
+        MiStream.filter(track = palabrasBusqueda)
 
     except ConnectionFailure:
         print('Failed to connect to replicaSet')
